@@ -88,28 +88,6 @@ function clasificar_clientes_por_ahorro(clientes) {
 }
 
 ///clasificar_clientes_por_ahorro(clientes)
-
-///Cantidad de ahorro por banco
-function calcular_ahorro_por_banco(clientes) {
-    const resultado = {}
-
-    clientes.forEach(cliente => {
-        if (!resultado[cliente.bank]) {
-            resultado[cliente.bank] = {
-                bank: cliente.bank,
-                cantidad_usuarios: 0,
-                ahorro_total: 0
-            };
-        }
-
-        resultado[cliente.bank].cantidad_usuarios++;
-        resultado[cliente.bank].ahorro_total += calcular_balance(cliente.salary, cliente.expenses)
-    })
-    return resultado
-}
-
-console.log(calcular_ahorro_por_banco(clientes))
-
 ///Pais con mejor ahorro
 function calcular_ahorro_por_pais(clientes, key_elegida) {
     const resultado = {}
@@ -133,3 +111,4 @@ function calcular_ahorro_por_pais(clientes, key_elegida) {
 }
 
 console.log(calcular_ahorro_por_pais(clientes, "country"))
+console.log(calcular_ahorro_por_pais(clientes, "bank"))
