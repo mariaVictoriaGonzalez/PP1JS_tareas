@@ -63,7 +63,7 @@ function imprimir_balance(clientes) {
     return `Nombre: ${cliente.first_name}, ${cliente.last_name}, Banco: ${cliente.bank}, Ahorro: $${balance_elegido}.`
 }
 
-console.log(imprimir_balance(clientes))
+///console.log(imprimir_balance(clientes))
 
 ///clasificación financiera
 function clasificar_clientes_por_ahorro(clientes) {
@@ -87,7 +87,7 @@ function clasificar_clientes_por_ahorro(clientes) {
     })
 }
 
-clasificar_clientes_por_ahorro(clientes)
+///clasificar_clientes_por_ahorro(clientes)
 
 ///Cantidad de ahorro por banco
 function calcular_ahorro_por_banco(clientes) {
@@ -111,22 +111,25 @@ function calcular_ahorro_por_banco(clientes) {
 console.log(calcular_ahorro_por_banco(clientes))
 
 ///Pais con mejor ahorro
-function calcular_ahorro_por_pais(clientes) {
+function calcular_ahorro_por_pais(clientes, key_elegida) {
     const resultado = {}
 
     clientes.forEach(cliente => {
-        if (!resultado[cliente.country]) {
-            resultado[cliente.country] = {
-                bank: cliente.country,
+        const clave = cliente[key_elegida]
+
+        if (!resultado[clave]) {
+            resultado[clave] = {
+                clave: clave,
                 cantidad_usuarios: 0,
                 ahorro_total: 0
             };
         }
 
-        resultado[cliente.country].cantidad_usuarios++;
-        resultado[cliente.country].ahorro_total += calcular_balance(cliente.salary, cliente.expenses)
+        resultado[clave].cantidad_usuarios++;
+        resultado[clave].ahorro_total += calcular_balance(cliente.salary, cliente.expenses)
     })
+
     return resultado
 }
 
-console.log(calcular_ahorro_por_pais(clientes))
+console.log(calcular_ahorro_por_pais(clientes, "country"))
