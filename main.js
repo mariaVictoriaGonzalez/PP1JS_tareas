@@ -63,7 +63,7 @@ function imprimir_balance(clientes) {
     return `Nombre: ${cliente.first_name}, ${cliente.last_name}, Banco: ${cliente.bank}, Ahorro: $${balance_elegido}.`
 }
 
-///console.log(imprimir_balance(clientes))
+console.log(imprimir_balance(clientes))
 
 ///clasificación financiera
 function clasificar_clientes_por_ahorro(clientes) {
@@ -87,7 +87,8 @@ function clasificar_clientes_por_ahorro(clientes) {
     })
 }
 
-///clasificar_clientes_por_ahorro(clientes)
+clasificar_clientes_por_ahorro(clientes)
+///Banco con mejor ahorro
 ///Pais con mejor ahorro
 function calcular_ahorro_por_pais(clientes, key_elegida) {
     const resultado = {}
